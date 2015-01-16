@@ -3,15 +3,15 @@ Suricata Enabled Rules
 
 "DO NOT USE!" categories moved here
 -----------------------------------
-emerging-botcc <<< use list
-emerging-botcc.portgrouped <<< use list
-emerging-ciarmy <<< use list
-emerging-compromised <<< use list
-emerging-drop <<< use list
-emerging-dshield <<< use list
+emerging-botcc <<< use pfBlockerNG list
+emerging-botcc.portgrouped <<< use pfBlockerNG list
+emerging-ciarmy <<< use pfBlockerNG list
+emerging-compromised <<< use pfBlockerNG list
+emerging-drop <<< use pfBlockerNG list
+emerging-dshield <<< use pfBlockerNG list
 emerging-telnet <<< Telnet is bad for kittens. Please stop using it. If your multithousand $ networking device does not allow for ssh access to it, please slowly open the window and throw it as far away as you can. Then purchase a multidozen $ networking device that allows ssh access.
 emerging-tftp > all rules in this category are based on port 69. Can be easily taken care of by firewall rules not allowing incoming/outgoing traffic for port 69 and a custom suricata rule. No need to waste processing here. Technically tftp has no place on the internet. >>>At least<<< set up a vpn/tunnel to encrypt the traffic, make sure who you are talking to is who you want to talk to.
-emerging-tor <<< use a list for this
+emerging-tor <<<use pfBlockerNG list
 emerging-netbios <<< Accessing netbios over the internet is considered as being one of the 3 worst mistakes in your life. Please set up *at least* a vpn (ssh tunnel/normal vpn) if you are stubborn and still wish to make this mistake.
 emerging-rbn-malvertisers <<< no longer maintained
 emerging-rbn <<< no longer maintained
@@ -24,7 +24,9 @@ Exceptions are listed under the category.
 -----------------------------------
 decoder-events > all except:
 2200003 SURICATA IPv4 truncated packet <<< ***NOISE***
+2200013 SURICATA IPv6 truncated packet <<< ***NOISE***
 2200029 SURICATA ICMPv6 unknown type <<< breaks IPv6 tunnels
+2200073 SURICATA IPv4 invalid checksum <<< ***NOISE***
 2200076 SURICATA ICMPv4 invalid checksum <<< default gateway
 2200079 SURICATA ICMPv6 invalid checksum <<< breaks sixxs's IPv6 tunnels
 >>>DISABLED:4
@@ -46,7 +48,12 @@ emerging-chat > all except:
 2002028 ET CHAT IRC PONG response <<< breaks IRC
 2002026 ET CHAT IRC PRIVMSG command <<< breaks IRC
 2001260 ET CHAT Yahoo IM message <<< debian mirror
->>DISABLED:9
+2003031 ET CHAT Known SSL traffic on port 5222 (Jabber) being excluded from SSL Alerts << Alerts on Cisco Jabber WebEx
+2003032 ET CHAT Known SSL traffic on port 5223 (Jabber) being excluded from SSL Alerts << Alerts on Cisco Jabber WebEx
+2100230 GPL CHAT Jabber/Google Talk Outgoing Traffic << Alerts on Cisco Jabber WebEx
+2100231 GPL CHAT Jabber/Google Talk Outgoing Auth << Alerts on Cisco Jabber WebEx
+2100233 GPL CHAT Jabber/Google Talk Outoing Message << Alerts on Cisco Jabber WebEx
+>>DISABLED:14
 
 emerging-current_events > all except:
 2014527 ET CURRENT_EVENTS Exploit Kit Delivering Compressed Flash Content to Client <<< Tired of manually cleaning up after this one.
@@ -133,7 +140,18 @@ emerging-p2p > all except:
 2008581 ET P2P BitTorrent DHT ping request <<< breaks torrents
 2008583 ET P2P BitTorrent DHT nodes reply <<< breaks torrents
 2011699 ET P2P Bittorrent P2P Client User-Agent (Transmission/1.x) <<< obvious
->>>DISABLED:3
+2102180 GPL P2P BitTorrent announce request
+2102181 GPL P2P BitTorrent transfer
+2000334 ET P2P BitTorrent peer sync
+2014734 ET P2P BitTorrent - Torrent File Downloaded
+2007727 ET P2P possible torrent download
+2011706 ET P2P Bittorrent P2P Client User-Agent (uTorrent)
+2000369 ET P2P BitTorrent Announce
+2016662
+2012247
+2010144
+2016662
+>>>DISABLED:14
 
 emerging-policy > all except:
 2010815 ET POLICY Incoming Connection Attempt From Amazon EC2 Cloud <<< obvious
