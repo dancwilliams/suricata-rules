@@ -29,7 +29,7 @@ decoder-events > all except:
 2200073 SURICATA IPv4 invalid checksum <<< ***NOISE***
 2200076 SURICATA ICMPv4 invalid checksum <<< default gateway
 2200079 SURICATA ICMPv6 invalid checksum <<< breaks sixxs's IPv6 tunnels
->>>DISABLED:4
+>>>DISABLED:6
 
 emerging-activex > all
 >>>DISABLED:0
