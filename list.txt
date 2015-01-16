@@ -72,7 +72,8 @@ emerging-dos > all
 
 emerging-exploit > all except:
 2001022 ET EXPLOIT Invalid non-fragmented packet with fragment offset>0 <<< google
->>>DISABLED:1
+2001191 ET EXPLOIT libPNG - Width exceeds limit << Broken Rule...reported to ET
+>>>DISABLED:2
 
 emerging-ftp > all except:
 2010731 ET FTP FTP CWD command attempt without login <<< breaks filezilla
@@ -140,18 +141,17 @@ emerging-p2p > all except:
 2008581 ET P2P BitTorrent DHT ping request <<< breaks torrents
 2008583 ET P2P BitTorrent DHT nodes reply <<< breaks torrents
 2011699 ET P2P Bittorrent P2P Client User-Agent (Transmission/1.x) <<< obvious
-2102180 GPL P2P BitTorrent announce request
-2102181 GPL P2P BitTorrent transfer
-2000334 ET P2P BitTorrent peer sync
-2014734 ET P2P BitTorrent - Torrent File Downloaded
-2007727 ET P2P possible torrent download
-2011706 ET P2P Bittorrent P2P Client User-Agent (uTorrent)
-2000369 ET P2P BitTorrent Announce
-2016662
-2012247
-2010144
-2016662
->>>DISABLED:14
+2102180 GPL P2P BitTorrent announce request <<< breaks torrents
+2102181 GPL P2P BitTorrent transfer <<< breaks torrents
+2000334 ET P2P BitTorrent peer sync <<< breaks torrents
+2014734 ET P2P BitTorrent - Torrent File Downloaded <<< breaks torrents
+2007727 ET P2P possible torrent download <<< breaks torrents
+2011706 ET P2P Bittorrent P2P Client User-Agent (uTorrent) <<< breaks torrents
+2000369 ET P2P BitTorrent Announce <<< breaks torrents
+2016662 ET P2P Possible Bittorrent Activity - Multiple DNS Queries For tracker hosts <<< breaks torrents
+2012247 ET P2P BTWebClient UA uTorrent in use <<< breaks torrents
+2010144 ET P2P Vuze BT UDP Connection (5) <<< breaks torrents
+>>>DISABLED:13
 
 emerging-policy > all except:
 2010815 ET POLICY Incoming Connection Attempt From Amazon EC2 Cloud <<< obvious
@@ -215,6 +215,7 @@ emerging-policy > all except:
 2011582 ET POLICY Vulnerable Java Version 1.6.x Detected <<< see above
 2014297 ET POLICY Vulnerable Java Version 1.7.x Detected <<< see above
 2019401 ET POLICY Vulnerable Java Version 1.8.x Detected <<< see above
+2015686 ET POLICY Signed TLS Certificate with md5WithRSAEncryption << Breaks Cisco IP Phone VPN
 >>>DISABLED:61
 
 emerging-pop3 > all
@@ -244,10 +245,12 @@ emerging-shellcode > all except:
 648 GPL SHELLCODE x86 NOOP <<< freebsd iso download
 2101390 GPL SHELLCODE x86 inc ebx NOOP <<< freebsd iso download
 2100651 GPL SHELLCODE x86 stealth NOOP <<< freebsd iso download
-653 GPL SHELLCODE x86 0x90 unicode NOOP <<< freebsd iso download
+2100653 GPL SHELLCODE x86 0x90 unicode NOOP <<< freebsd iso download
 2102314 GPL SHELLCODE x86 0x90 NOOP unicode <<< freebsd iso download
 2013319 ET SHELLCODE Unicode UTF-8 Heap Spray Attempt  <<< debian mirror
->>>DISABLED:13
+2013222 ET SHELLCODE Excessive Use of HeapLib Objects Likely Malicious Heap Spray Attempt <<< dangerous rule based on cleartext HTTP. Fires up on known good sites when repeated occurences of *heap* is encountered.
+2011804 ET SHELLCODE Possible UDP x86 JMP to CALL Shellcode Detected << Breaks BitTorrent
+>>>DISABLED:15
 
 emerging-smtp > all except:
 2100567 GPL SMTP SMTP relaying denied <<< obvious
@@ -303,7 +306,8 @@ emerging-web_client > all except
 2103088 GPL WEB_CLIENT winamp .cda file name overflow attempt <<< debian mirror
 2103192 GPL WEB_CLIENT Windows Media Player directory traversal via Content-Disposition attempt  <<< A rule about a vulnerability that was fixed in Windows XP SP2 (2003), firing up in 2014 is a bit too much, even for me.
 2103134 GPL WEB_CLIENT PNG large colour depth download attempt <<< debian mirror
->>>DISABLED:22
+2011695 ET WEB_CLIENT Possible Microsoft Internet Explorer Dynamic Object Tag/URLMON Sniffing Cross Domain Information Disclosure Attempt << broken rule...reported to ET
+>>>DISABLED:23
 
 emerging-web_server > all except:
 2101852 GPL WEB_SERVER robots.txt access <<< DELETE UPSTREAM!
