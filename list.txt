@@ -218,7 +218,8 @@ emerging-policy > all except:
 2015686 ET POLICY Signed TLS Certificate with md5WithRSAEncryption << Breaks Cisco IP Phone VPN
 2016870 ET POLICY Unsupported/Fake Internet Explorer Version MSIE 5. << Breaks stunnel
 2007695 ET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System << Breaks stunnel
->>>DISABLED:63
+2019416 ET POLICY SSLv3 outbound connection from client vulnerable to POODLE attack << Breaks WebEx
+>>>DISABLED:64
 
 emerging-pop3 > all
 >>>DISABLED:0
