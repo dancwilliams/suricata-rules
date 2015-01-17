@@ -74,7 +74,6 @@ emerging-exploit > all except:
 2001022 ET EXPLOIT Invalid non-fragmented packet with fragment offset>0 <<< google
 2001191 ET EXPLOIT libPNG - Width exceeds limit << Broken Rule...reported to ET
 2002802 ET EXPLOIT Windows Media Player parsing BMP file with 0 size offset to start of image << Breaks a lot of websites
-2012889 ET POLICY Http Client Body contains pw= in cleartext << Badly written.  Reported
 >>>DISABLED:4
 
 emerging-ftp > all except:
@@ -221,7 +220,8 @@ emerging-policy > all except:
 2016870 ET POLICY Unsupported/Fake Internet Explorer Version MSIE 5. << Breaks stunnel
 2007695 ET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System << Breaks stunnel
 2019416 ET POLICY SSLv3 outbound connection from client vulnerable to POODLE attack << Breaks WebEx
->>>DISABLED:64
+2012889 ET POLICY Http Client Body contains pw= in cleartext << Poorly written.  Reported
+>>>DISABLED:65
 
 emerging-pop3 > all
 >>>DISABLED:0
