@@ -74,7 +74,8 @@ emerging-exploit > all except:
 2001022 ET EXPLOIT Invalid non-fragmented packet with fragment offset>0 <<< google
 2001191 ET EXPLOIT libPNG - Width exceeds limit << Broken Rule...reported to ET
 2002802 ET EXPLOIT Windows Media Player parsing BMP file with 0 size offset to start of image << Breaks a lot of websites
->>>DISABLED:3
+2012889 ET POLICY Http Client Body contains pw= in cleartext << Badly written.  Reported
+>>>DISABLED:4
 
 emerging-ftp > all except:
 2010731 ET FTP FTP CWD command attempt without login <<< breaks filezilla
