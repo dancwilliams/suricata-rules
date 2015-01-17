@@ -221,7 +221,8 @@ emerging-policy > all except:
 2007695 ET POLICY Windows 98 User-Agent Detected - Possible Malware or Non-Updated System << Breaks stunnel
 2019416 ET POLICY SSLv3 outbound connection from client vulnerable to POODLE attack << Breaks WebEx
 2012889 ET POLICY Http Client Body contains pw= in cleartext << Poorly written.  Reported
->>>DISABLED:65
+2007571 ET POLICY Remote Desktop Connection via non RDP Port << Good rule...disabled until all clients get SSL VPN
+>>>DISABLED:66
 
 emerging-pop3 > all
 >>>DISABLED:0
