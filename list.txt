@@ -224,7 +224,8 @@ emerging-policy > all except:
 2007571 ET POLICY Remote Desktop Connection via non RDP Port << Good rule...disabled until all clients get SSL VPN
 2001405 ET POLICY ZIPPED PPT in transit << breaks a lot of Cisco documentation sites
 2012887 ET POLICY Http Client Body contains pass= in cleartext << poorly written and reported
->>>DISABLED:69
+2014756 ET POLICY Logmein.com/Join.me SSL Remote Control Access << Breaks LogMeIn
+>>>DISABLED:70
 
 emerging-pop3 > all
 >>>DISABLED:0
