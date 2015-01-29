@@ -31,6 +31,9 @@ decoder-events > all except:
 2200079 SURICATA ICMPv6 invalid checksum <<< breaks sixxs's IPv6 tunnels
 >>>DISABLED:6
 
+dns-events > all
+>>>DISABLED:0
+
 emerging-activex > all
 >>>DISABLED:0
 
@@ -44,9 +47,9 @@ emerging-chat > all except:
 2002023 ET CHAT IRC USER command <<< breaks IRC
 2002024 ET CHAT IRC NICK command <<< breaks IRC
 2002025 ET CHAT IRC JOIN command <<< breaks IRC
+2002026 ET CHAT IRC PRIVMSG command <<< breaks IRC
 2002027 ET CHAT IRC PING command <<< breaks IRC
 2002028 ET CHAT IRC PONG response <<< breaks IRC
-2002026 ET CHAT IRC PRIVMSG command <<< breaks IRC
 2001260 ET CHAT Yahoo IM message <<< debian mirror
 2003031 ET CHAT Known SSL traffic on port 5222 (Jabber) being excluded from SSL Alerts << Alerts on Cisco Jabber WebEx
 2003032 ET CHAT Known SSL traffic on port 5223 (Jabber) being excluded from SSL Alerts << Alerts on Cisco Jabber WebEx
@@ -127,7 +130,8 @@ emerging-info > all except:
 
 emerging-malware > all except:
 2008438 ET MALWARE Possible Windows executable sent when remote host claims to send a Text File  <<< akamai, drivers
->>>DISABLED:1
+2012229 ET MALWARE Suspicious Chinese Content-Language zh-cn Which May be Malware Related <<< alibaba/aliexpress
+>>>DISABLED:2
 
 emerging-misc > all
 >>>DISABLED:0
@@ -154,7 +158,6 @@ emerging-p2p > all except:
 >>>DISABLED:13
 
 emerging-policy > all except:
-2010815 ET POLICY Incoming Connection Attempt From Amazon EC2 Cloud <<< obvious
 2000419 ET POLICY PE EXE or DLL Windows file download <<< antivirus updates
 2000428 ET POLICY ZIP file download <<< obvious
 2001115 ET POLICY MSI (microsoft installer file) download <<< obvious
@@ -224,7 +227,9 @@ emerging-policy > all except:
 2001405 ET POLICY ZIPPED PPT in transit << breaks a lot of Cisco documentation sites
 2012887 ET POLICY Http Client Body contains pass= in cleartext << poorly written and reported
 2014756 ET POLICY Logmein.com/Join.me SSL Remote Control Access << Breaks LogMeIn
->>>DISABLED:70
+2019240 ET POLICY Executable and linking format (ELF) file download Over HTTP <<< drivers/firmware
+2001449 ET POLICY Proxy Connection detected <<< Breaks iOS update verification
+>>>DISABLED:71
 
 emerging-pop3 > all
 >>>DISABLED:0
@@ -259,7 +264,7 @@ emerging-shellcode > all except:
 2013222 ET SHELLCODE Excessive Use of HeapLib Objects Likely Malicious Heap Spray Attempt <<< dangerous rule based on cleartext HTTP. Fires up on known good sites when repeated occurences of *heap* is encountered.
 2011804 ET SHELLCODE Possible UDP x86 JMP to CALL Shellcode Detected << Breaks BitTorrent
 2100650 GPL SHELLCODE x86 setuid 0 << Kills Cisco Phone ANyconnect VPN
->>>DISABLED:15
+>>>DISABLED:16
 
 emerging-smtp > all except:
 2100567 GPL SMTP SMTP relaying denied <<< obvious
@@ -342,9 +347,10 @@ files > all except:
 1:10 FILEMAGIC jpg(1) <<< obvious
 1:11 FILEMAGIC jpg(2) <<< obvious
 1:18 FILE magic -- windows <<< windows updates
+1:19 FILE tracking PNG (1x1 pixel) (1) <<< breaks "good" sites. If you want internet, you better get used to tracking
 1:21 FILE tracking GIF (1x1 pixel) <<< breaks "good" sites. If you want internet, you better get used to tracking
 1:22 FILE pdf claimed, but not pdf <<< fires up when spiders (eg googlebot) try to download a part of a pdf, therefore DELETE UPSTREAM
->>>DISABLED:8
+>>>DISABLED:9
 
 http-events > all except
 2221000 SURICATA HTTP unknown error <<< breaks windows updates
