@@ -322,7 +322,8 @@ emerging-web_client > all except
 2103192 GPL WEB_CLIENT Windows Media Player directory traversal via Content-Disposition attempt  <<< A rule about a vulnerability that was fixed in Windows XP SP2 (2003), firing up in 2014 is a bit too much, even for me.
 2103134 GPL WEB_CLIENT PNG large colour depth download attempt <<< debian mirror
 2011695 ET WEB_CLIENT Possible Microsoft Internet Explorer Dynamic Object Tag/URLMON Sniffing Cross Domain Information Disclosure Attempt << broken rule...reported to ET
->>>DISABLED:23
+2011531 ET WEB_CLIENT PDF Name Representation Obfuscation of Type <<< Block Cisco.com downloading PDFs
+>>>DISABLED:24
 
 emerging-web_server > all except:
 2101852 GPL WEB_SERVER robots.txt access <<< DELETE UPSTREAM!
